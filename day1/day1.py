@@ -19,11 +19,11 @@ def find_first_and_last_digit(string):
     return int(first_digit + last_digit)
 
 print(find_first_and_last_digit("A4B6C8D3"))        # This works fine, returns 43
-print(find_first_and_last_digit("A4B6C8DJ"))        # This was causing an error because last char is not a digit
+print(find_first_and_last_digit("A4B6C8DJ"))        # This was causing an error because last char is not a digit, returns 48
+
+print(find_first_and_last_digit("A4B6C8D3")+find_first_and_last_digit("A4B6C8DJ"))  # should return 91
 
 ## TODO: allow input from file (input.raw)
-
-## TODO: convert the find_first_and_last_digit function to return an integer instead of a string
 
 ## TODO: sum all the integers in the input.raw file based on the rules of the find_first_and_last_digit function
 
