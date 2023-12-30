@@ -16,6 +16,9 @@ import re                                           # Regular Expressions librar
 def find_first_and_last_digit(string):
     first_digit = re.search(r'\d', string).group()      # this works fine
     last_digit = re.findall(r'\d', string)[-1]          # corrected syntax
+    
+    print("converting {string} to {first_digit}{last_digit}".format(string=string, first_digit=first_digit, last_digit=last_digit))
+    
     return int(first_digit + last_digit)
 
 #print(find_first_and_last_digit("A4B6C8D3")))        # This works fine, returns 43
@@ -47,8 +50,11 @@ def replace_word_with_digit(match):
     return word_to_digit[word]
 
 def quick_replace_word_with_digit(input_string):
-    input_string = re.sub("|".join(word_to_digit.keys()), replace_word_with_digit, input_string, flags=re.IGNORECASE)
-    return input_string
+    output_string = re.sub("|".join(word_to_digit.keys()), replace_word_with_digit, input_string, flags=re.IGNORECASE)
+    
+    print("converting {input_string} to {output_string} ".format(input_string=input_string, output_string=output_string), end="")
+
+    return output_string
 
 ## Example below:
 text = "38qFiv3sixninezero993"
@@ -2073,4 +2079,5 @@ RunningTotal = RunningTotal + find_first_and_last_digit(quick_replace_word_with_
 RunningTotal = RunningTotal + find_first_and_last_digit(quick_replace_word_with_digit("nine2hdltdjdp73phzrjnonegx"))
 RunningTotal = RunningTotal + find_first_and_last_digit(quick_replace_word_with_digit("3two3eightjszbfourkxbh5twonepr"))
 RunningTotal = RunningTotal + find_first_and_last_digit(quick_replace_word_with_digit("5cfprzgxtf3465five"))
+
 print("Second answer is: " + str(RunningTotal))
